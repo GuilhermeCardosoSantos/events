@@ -1,3 +1,7 @@
 .venv/
 
 *.db
+
+.env
+
+logs/
