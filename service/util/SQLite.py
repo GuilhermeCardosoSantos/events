@@ -2,7 +2,7 @@ import sqlite3
 
 from typing import List, Optional, Union
 
-DB_PATH = "Chat.db"
+DB_PATH = "_.db"
 
 # ===========================
 # Funções utilitárias de DB

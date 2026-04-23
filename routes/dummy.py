@@ -29,7 +29,8 @@ def send_message(message: str, idempotency_key: str = None):
         
         # Salvar a chave de idempotência para evitar reprocessamento
         execute("INSERT INTO idempotency_keys (key) VALUES (?)", (idempotency_key,))
-    except:
+    except Exception as e:
+        print(f"Erro ao processar a chave de idempotência: {e}")
         return {
             "status": "duplicado",
             "message": "Requisição já processada"
@@ -43,7 +44,7 @@ def send_message(message: str, idempotency_key: str = None):
         }
     }
     producer.send("dummy-topic", event)
-    
+
     return {
         "status": "Mensagem enviada para Kafka",
         "idempotency_key": idempotency_key
