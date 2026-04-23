@@ -3,5 +3,6 @@
 *.db
 
 .env
+venv/
 
 logs/
