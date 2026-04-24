@@ -8,4 +8,9 @@ dependencies = [
     "fastapi[standard]>=0.136.0",
     "kafka-python>=2.3.1",
     "locust>=2.43.4",
+    "opentelemetry-exporter-jaeger>=1.21.0",
+    "opentelemetry-instrumentation-fastapi>=0.62b0",
+    "opentelemetry-sdk>=1.41.0",
+    "prometheus-client>=0.25.0",
+    "strawberry-graphql[fastapi]>=0.315.0",
 ]

@@ -9,6 +9,9 @@ import uuid
 # util
 from service.util.SQLite import query, execute
 
+# metrics
+from metrics import REQUEST_COUNT, REQUEST_TIME
+
 router = APIRouter(prefix="/dummy", tags=["Rotas de teste"])
 
 @router.get("/")
@@ -43,9 +46,11 @@ def send_message(message: str, idempotency_key: str = None):
             "message": message
         }
     }
+    
     producer.send("dummy-topic", event)
 
     return {
         "status": "Mensagem enviada para Kafka",
         "idempotency_key": idempotency_key
     }
+
